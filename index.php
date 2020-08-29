@@ -21,153 +21,150 @@
 </head>
 <body>
 
-<div class="preloader-wrapp">
-<h2><?=$_config['website-title']?></h2>
-<div class="preloader"></div>
-</div>
-
-<?php require_once("includes/header.php");?>
-
-<div id="nav-registration" class="modal fade">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
-<h4 class="modal-title">Register</h4>
-</div>
-<div class="modal-body">
-<form action="#" method="post">
- <div>
-<p>Username:</p>
-<div class="arc-input">
-<input type="text" name="user_login" />
-</div>
-<p>E-mail:</p>
-<div class="arc-input">
-<input type="text" name="user_email" />
-</div>
-<p>
-<em>A password will be e-mailed to you.</em>
-</p>
-<button class="btn ml-3" name="submit">Register</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-
-<div class="content-wrap">
-
-<section class="arc-banner arc-banner-parallax">
-<div class="image" data-speed="0.4">
-<img src="assets/images/banner-bg.jpg" alt="" class="jarallax-img">
-</div>
-<div class="info">
-<div class="container">
-<div class="row">
-<div class="content-wrap col-md-6">
-<div class="col-md-12">
-<h3>News</h3>
-</div>
-
-<img src="assets/images/wow-sl.jpg"/>
-<div class="col-md-12">
-<h4><a href="#">Sortie de la nouvelle extention le 27/10/2020.</a></h4>
-</div>
-<div class="col-md-8">
-<h6>Ecrire un resumé de quelques mots. </h6>
-</div>
-<div class="col-md-4">
-<a class="btn btn-primary pull-right btn-news">Lire l'article</a>
-</div>
-</div>
-<div class="col-md-6">
-<div id="form-loading" style="display:none;margin-top:120px">
-  <center>
-		<h4>Loading...</h4>
-		<div class="mfp-preloader preloader"></div>
-		</center>
-  </div>
-<div id="form-login">
-<h3>Login</h3>
-
-<div class="row">
-<div class="col-md-12">
-<p>Email:</p>
-<div class="arc-input">
-<input type="text" name="billing_email" placeholder="Email">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-<p>Password:</p>
-<div class="arc-input">
-<input type="text" name="billing_city" placeholder="Password">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-<div class="arc-checkbox">
-<input type="checkbox" name="rememberme" value="forever" id="nav-rememberme"/>
-<label for="nav-rememberme"><?=$lang["header-remember-me"]?></label>
-</div>
-</div>
-</div>
-<a href="#" class="btn btn-md btn-show-reg-form">Show reg form</a>
-<a href="#" class="btn btn-md pull-right">Send login</a>
-
-</div>
-<div id="form-register" style="display:none">
-<h3>Join us !</h3>
-
-<div class="row">
-<div class="col-md-6">
-<p>First Name:</p>
-<div class="arc-input">
-<input type="text" name="billing_firstname" placeholder="First Name">
-</div>
-</div>
-<div class="col-md-6">
-<p>Last Name:</p>
-<div class="arc-input">
-<input type="text" name="billing_lastname" placeholder="Last Name">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-<p>Email:</p>
-<div class="arc-input">
-<input type="text" name="billing_email" placeholder="Email">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<p>Password:</p>
-<div class="arc-input">
-<input type="text" name="billing_city" placeholder="Password">
-</div>
-</div>
-<div class="col-md-6">
- <p>Confirm password:</p>
-<div class="arc-input">
-<input type="text" name="billing_country" placeholder="Confirm password">
-</div>
-</div>
-</div>
-<a href="#" class="btn btn-md btn-show-log-form">Show log form</a>
-<a href="#" class="btn btn-md pull-right">Send register</a>
-</div>
-
-</div>
-</div>
-</div>
-</section>
-
+	<div class="preloader-wrapp">
+		<h2><?=$_config['website-title']?></h2>
+		<div class="preloader"></div>
+	</div>
+	<?php require_once("includes/header.php");?>
+	<div class="content-wrap">
+		<section class="arc-banner arc-banner-parallax">
+			<div class="image" data-speed="0.4">
+				<img src="assets/images/banner-bg.jpg" alt="" class="jarallax-img">
+			</div>
+			<div class="info">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="arc-news-box">
+								<h3 class="arc-decorated-h-2"><span>Latest News</span></h3>
+								<div class="arc-news-box-each-info">
+									<div class="nano">
+										<div class="nano-content loadNew">
+											<div class="arc-news-box-item-image" style="background-image: url('assets/images/wow-sl.jpg');">
+												<span class="arc-news-box-item-categories">
+													<span class="bg-main-3">logotext</span>
+												</span>
+											</div>
+											<h3 class="arc-news-box-item-title">Sortie de la nouvelle extention le 27/10/2020.</h3>
+											<div class="arc-news-box-item-text">
+												<p>Ecrire un resumé de quelques mots.</p>
+											</div>
+											<a href="#" class="arc-news-box-item-more">Lire l'article</a>
+											<div class="arc-news-box-item-date">
+												<span class="glyphicon glyphicon-calendar"></span> date
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div id="form-loading" style="display:none">
+								<div class="arc-news-box">
+									<div class="arc-news-box-each-info">
+										<div class="nano">
+											<div class="nano-content" style="margin-top:120px">
+												<center>
+													<h4>Loading...</h4>
+													<div class="mfp-preloader preloader"></div>
+												</center>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="form-login">
+								<div class="arc-news-box">
+									<h3 class="arc-decorated-h-2"><span>Me connecter</span></h3>
+									<div class="arc-news-box-each-info">
+										<div class="nano">
+											<div class="nano-content">
+												<div class="row">
+													<div class="col-md-12">
+														<p>Email:</p>
+														<div class="arc-input">
+															<input type="text" name="billing_email" placeholder="Email">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<p>Password:</p>
+														<div class="arc-input">
+															<input type="text" name="billing_city" placeholder="Password">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="arc-checkbox">
+															<input type="checkbox" name="rememberme" value="forever" id="nav-rememberme"/>
+															<label for="nav-rememberme"><?=$lang["header-remember-me"]?></label>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="btn btn-md btn-show-reg-form">Show reg form</a>
+												<a href="#" class="btn btn-md pull-right">Send login</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="form-register" style="display:none">
+								<div class="arc-news-box">
+									<h3 class="arc-decorated-h-2"><span>M'inscrire</span></h3>
+									<div class="arc-news-box-each-info">
+										<div class="nano">
+											<div class="nano-content">
+												<div class="row">
+												<div class="col-md-6">
+												<p>First Name:</p>
+												<div class="arc-input">
+												<input type="text" name="billing_firstname" placeholder="First Name">
+												</div>
+												</div>
+												<div class="col-md-6">
+												<p>Last Name:</p>
+												<div class="arc-input">
+												<input type="text" name="billing_lastname" placeholder="Last Name">
+												</div>
+												</div>
+												</div>
+												<div class="row">
+												<div class="col-md-12">
+												<p>Email:</p>
+												<div class="arc-input">
+												<input type="text" name="billing_email" placeholder="Email">
+												</div>
+												</div>
+												</div>
+												<div class="row">
+												<div class="col-md-6">
+												<p>Password:</p>
+												<div class="arc-input">
+												<input type="text" name="billing_city" placeholder="Password">
+												</div>
+												</div>
+												<div class="col-md-6">
+												 <p>Confirm password:</p>
+												<div class="arc-input">
+												<input type="text" name="billing_country" placeholder="Confirm password">
+												</div>
+												</div>
+												</div>
+												<a href="#" class="btn btn-md btn-show-log-form">Show log form</a>
+												<a href="#" class="btn btn-md pull-right">Send register</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 <div class="content-wrap no-banner">
 <div class="container arc-store store-grid mt-0">
 
