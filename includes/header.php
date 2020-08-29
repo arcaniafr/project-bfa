@@ -18,16 +18,23 @@
 				<a href="index.php"><?=$lang["header-index"]?></a>
 			</li>
 			<li>
-				<a href="#"><?=$lang["header-forum"]?></a>
-			</li>
-			<li>
-				<a href="#"><?=$lang["header-bugtracker"]?></a>
-			</li>
-			<li>
 				<a href="account.php"><?=$lang["header-account"]?></a>
 			</li>
-			<li>
-				<a href="#"><?=$lang["header-help"]?></a>
+			<li class=" dropdown dropdown-hover">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <?=$lang["header-help"]?> <span class="caret"></span></a>
+				<div class="dropdown-menu">
+					<ul role="menu">
+						<li>
+							<a href="#"> <?=$lang["header-forum"]?> </a>
+						</li>
+						<li>
+							<a href="#"> <?=$lang["header-bugtracker"]?> </a>
+						</li>
+						<li>
+							<a href="contact.php"> Contact </a>
+						</li>
+					</ul>
+				</div>
 			</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
