@@ -1295,6 +1295,37 @@ footer .copyright{position:relative;padding:30px 10px;text-align:center;backgrou
 	color:#fff;
 }
 
+.arc-character-box {
+    min-height: 150px;
+    overflow: hidden;
+    background-color: #080325;
+    border: 1px solid #313d46;
+    padding: 10px 10px 10px 10px;
+    opacity: 0.9;
+}
+
+.arc-widget-title{position:relative;margin-bottom:0;z-index:1}
+.arc-widget-title>span{display:inline-block;}
+.arc-widget-title:after{content:'';position:absolute;display:block;right:1px;height:3px;background-color:#fff;z-index:-1}
+.arc-widget-content a{color:#fff;}
+.arc-widget-content a:hover{color:#1b9c24;}
+.arc-chars>li{
+	display:table;
+	padding:10px;
+	width:100%;
+	background-color:#273138;
+}
+.arc-site-title{
+	content:'';
+	font-size:3.025rem;
+	margin-left:0;
+	margin-top:9px
+	display:block;-ms-flex:100;
+	flex:100;
+	border-bottom:3px solid #fff;
+	-ms-transform:translateY(-12px);
+	transform:translateY(-12px)
+}
 .arc-container-box {
 	margin-bottom:10px;
     overflow: hidden;

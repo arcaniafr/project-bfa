@@ -37,9 +37,10 @@
 <div class="arc-user-navigation">
 <div class="container">
 <ul>
-<li class="active"><a href="user-profile.html">Characters</a></li>
-<li><a href="user-messages.html">Messages <span class="badge">0</span></a></li>
-<li><a href="user-settings.html">Settings</a></li>
+<li class="active"><a href="account.php">Mon compte</a></li>
+<li><a href="characters.php">Characters</a></li>
+<li><a href="#">Messages <span class="badge">0</span></a></li>
+<li><a href="#">Settings</a></li>
 </ul>
 </div>
 </div>
@@ -77,24 +78,38 @@
 
 <div class="container arc-content">
 <div class="row">
-<div class="col-md-9">
-<h3 class="mt-40 mb-20">Characters</h3>
-<table class="table table-bordered">
-<tbody>
-<tr>
-<td style="width: 200px;">
-<p>CharName</p>
-</td>
-<td>
-<p>Race/Specialisation/level</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="col-md-9"><div class="col-md-12">
+		<div class="col-md-2">
+			<img src="assets/images/no-avatar.png" style="padding-top:10px">
+		</div>
+		<div class="col-md-10">
+			<h5>Pseudo : arcaniafr</h5>
+			<h5>Email : arcaniafr@gmail.com</h5>
+			<h5>Inscrit le : 26/11/2017</h5>
+			<h5>Mes personnages : 9</h5>
+			<h5>Mes jetons : 7<img src="assets/images/jtn.png" width="30px"></h5>
+			<h5>Dernière IP : 127.0.0.1</h5>
+			<h5>Dernière connexion : 30/08/2020</h5>
+			<h5>Rang : <span class="glyphicon glyphicon-star" style="color:#d42121">Développeur</span></h5>
+			<div class="nk-gap-1"></div>
+			<button class="btn btn-theme btn-block">Modifier mes informations</button>
+		</div>
+	</div>
 </div>
 
 <div class="col-md-3">
-<div class="side-block">
+<div class="side-block arc-container-box">
+	<h4 class="block-title">Mon compte</h4>
+	<div class="arc-widget-content">
+		<h5><a href="account.php"><span class="glyphicon glyphicon-home"></span> Afficher/modifier mon profil</a></h5>
+		<h5><a href="characters.php"><span class="glyphicon glyphicon-user"></span> Gérer mes personnages</a></h5>
+		<h5><a href="#"><span class="glyphicon glyphicon-fire"></span> Accéder à la boutique</a></h5>
+		<h5><a href="#"><span class="glyphicon glyphicon-download"></span> Télécharger le Launcher</a></h5>
+		<div class="nk-gap-1"></div>
+		<button type="button" class="btn btn-primary send-disconnect">Me déconnecter</button>
+	</div>
+</div>
+<div class="side-block arc-container-box">
 <h4 class="block-title">Server informations</h4>
 <div class="block-content content-wrap">
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -103,6 +118,7 @@
 56/1500 players
 </div>
 </div>
+
 </div>
 
 </div>
