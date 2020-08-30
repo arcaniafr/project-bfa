@@ -37,8 +37,8 @@
 <div class="arc-user-navigation">
 <div class="container">
 <ul>
-<li class="active"><a href="account.php">Mon compte</a></li>
-<li><a href="characters.php">Characters</a></li>
+<li class="loadAccountLi active"><a href="#" class="loadAccountInfosClick">Mon compte</a></li>
+<li class="loadCharactersLi"><a href="#" class="loadCharactersClick">Characters</a></li>
 <li><a href="#">Messages <span class="badge">0</span></a></li>
 <li><a href="#">Settings</a></li>
 </ul>
@@ -78,7 +78,22 @@
 
 <div class="container arc-content">
 <div class="row">
-<div class="col-md-9"><div class="col-md-12">
+<div class="col-md-9 loadAccountInfos">
+	<div id="account-loading" style="display:none">
+		<div class="arc-news-box">
+			<div class="arc-news-box-each-info">
+				<div class="nano">
+					<div class="nano-content" style="margin-top:20px">
+						<center>
+							<h4>Loading...</h4>
+							<div class="mfp-preloader preloader"></div>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 ">
 		<div class="col-md-2">
 			<img src="assets/images/no-avatar.png" style="padding-top:10px">
 		</div>

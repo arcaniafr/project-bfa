@@ -20,3 +20,28 @@ $('.btn-show-reg-form').click(function(){
 setTimeout(function(){
 	$('.preloader-wrapp').hide();
 }, 500);
+
+$('.loadCharactersClick').click(function(){
+	$('#account-loading').show();
+	$('.loadAccountLi').removeClass('active');
+	$('.loadCharactersLi').addClass('active');
+	setTimeout(function(){
+		$.get('ajax/load-account.php?loadCharacters=true&accountID=1', function(response) {
+			$('#account-loading').hide();
+			$('.loadAccountInfos').html(response);
+		});
+	}, 500);
+});
+
+$('.loadAccountInfosClick').click(function(){
+	$('#account-loading').show();
+	$('.loadAccountLi').addClass('active');
+	$('.loadCharactersLi').removeClass('active');
+	setTimeout(function(){
+		$.get('ajax/load-account.php?loadAccountInfos=true&accountID=1', function(response) {
+			$('#account-loading').hide();
+			$('.loadAccountInfos').html(response);
+		});
+	}, 500);
+});
+
