@@ -165,130 +165,13 @@
 			</div>
 		</section>
 	</div>
-<div class="content-wrap no-banner">
-<div class="container arc-store store-grid mt-0">
+<div class="">
+<div class="container">
 
-<div class="col-md-9 isotope">
+<div class="col-md-3 ">
 
-<div class="isotope-list row vertical-gutter">
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-<div class="item col-lg-4 col-md-6 col-xs-12">
-<a href="#" class="angled-img">
-<div class="img img-offset">
-<img src="assets/images/wow-sl.jpg" alt="">
-</div>
-<div class="bottom-info">
-<h4>Test News</h4>
-<button class="btn btn-primary right"> Lire </button>
-</div>
-</a>
-</div>
-
-
-</div>
-</div>
-
-
-<div class="col-md-3">
-
-<div class="side-block">
-<p>Search by news:</p>
+<div class="side-block arc-container-box">
+<h4 class="arc-decorated-h-1">Search by news:</h4>
 <form action="#">
 <div class="arc-input">
 <input type="text" name="search" placeholder="Search news">
@@ -297,23 +180,66 @@
 </div>
 
 
-<div class="side-block">
-<h4 class="block-title">Server informations</h4>
+<div class="side-block arc-container-box">
+<h4 class="arc-decorated-h-1">Server informations</h4>
 <div class="block-content content-wrap">
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 <span>Online</span>
 </div>
-56/1500 players
+<center><small>56/1500 players</small></center>
 </div>
 </div>
 
 </div>
 
+<div class="col-md-9 isotope">
+
+<div class="isotope-list row ">
+
+<div class="item col-lg-12 col-md-12 col-xs-12 arc-container-box">
+<a href="news-detail.php" class="angled-img">
+<div class="img img-offset">
+<img src="assets/images/wow-sl.jpg" alt="">
+</div>
+<div class="bottom-info">
+<h4>Test News</h4>
+<a href="news-detail.php" class="btn btn-primary pull-right"> Lire </a>
+</div>
+</a>
+</div>
+
+<div class="item col-lg-12 col-md-12 col-xs-12 arc-container-box">
+<a href="news-detail.php" class="angled-img">
+<div class="img img-offset">
+<img src="assets/images/wow-sl.jpg" alt="">
+</div>
+<div class="bottom-info">
+<h4>Test News</h4>
+<a href="news-detail.php" class="btn btn-primary pull-right"> Lire </a>
+</div>
+</a>
+</div>
+
+<div class="item col-lg-12 col-md-12 col-xs-12 arc-container-box">
+<a href="news-detail.php" class="angled-img">
+<div class="img img-offset">
+<img src="assets/images/wow-sl.jpg" alt="">
+</div>
+<div class="bottom-info">
+<h4>Test News</h4>
+<a href="news-detail.php" class="btn btn-primary pull-right"> Lire </a>
+</div>
+</a>
+</div>
+
+</div>
+</div>
+
+
+</div>
 </div>
 
 <?php require_once("includes/footer.php");?>
-
-</div>
 
 <div class="modal" tabindex="-1" role="dialog" id="loading-modal">
   <div class="modal-dialog modal-sm" role="document">
