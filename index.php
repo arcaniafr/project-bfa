@@ -33,6 +33,11 @@
 			</div>
 			<div class="info">
 				<div class="container">
+					<?php if(isset($_GET['notConnected'])){
+						echo '<div class="col-md-12">
+							<div class="alert alert-danger" role="alert">You have been redirected because you are not logged in!</div>
+						</div>';
+					}?>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="arc-news-box">

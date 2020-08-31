@@ -1,7 +1,13 @@
 <?php
 	session_start();
-	include("core/config.php");
+	include("core/functions.php");
 	include('includes/languages/french.php'); // temporaire, voir le changement de langue par la suite.
+	include_once("../core/functions.php");
+	$auth = new Auth;
+	if(!$auth->isLogged()){
+		header('Location: index.php?notConnected=true');
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 
