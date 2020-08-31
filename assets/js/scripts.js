@@ -61,7 +61,7 @@ $('.sendLogin').click(function(){
 		var logPassword = $("#logPassword").val();
 		$.get('ajax/getRequest.php?sendLogin=true&logEmailUsername='+logEmailUsername+'&logPassword='+logPassword, function(response) {
 			if(response == 0){
-				//window.location = 'account.php';
+				window.location = 'account.php';
 			}
 			else{
 				$('#form-login').show();
@@ -86,7 +86,7 @@ $('.sendRegister').click(function(){
 		var repassword = $("#regRePassword").val();
 		$.get('ajax/getRequest.php?sendRegister=true&regUsername='+username+'&regEmail='+email+'&regPassword='+password+'&regRePassword='+repassword, function(response) {
 			if(response == 0){
-				//window.location = 'account.php';
+				window.location = 'account.php';
 			}
 			else{
 				$('#form-register').show();
