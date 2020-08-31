@@ -65,7 +65,7 @@
 										<div class="nano">
 											<div class="nano-content" style="margin-top:120px">
 												<center>
-													<h4>Loading...</h4>
+													<h4 id="titleLoader">Loading...</h4>
 													<div class="mfp-preloader preloader"></div>
 												</center>
 											</div>
@@ -76,35 +76,32 @@
 							<div id="form-login">
 								<div class="arc-news-box">
 									<h3 class="arc-decorated-h-2"><span>Me connecter</span></h3>
+									<div class="col-md-12 error-login" style="margin-bottom:-45px;display:none">
+										<div class="alert alert-danger error-login-text" role="alert">This is a danger alert—check it out!</div>
+									</div>
 									<div class="arc-news-box-each-info">
 										<div class="nano">
 											<div class="nano-content">
-												<div class="row">
-													<div class="col-md-12">
-														<p>Email:</p>
-														<div class="arc-input">
-															<input type="text" name="billing_email" placeholder="Email">
-														</div>
+												<div class="col-md-12">
+													<p>Email/Username:</p>
+													<div class="arc-input">
+														<input type="text" id="logEmailUsername" name="logEmailUsername" placeholder="Username or Email">
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-md-12">
-														<p>Password:</p>
-														<div class="arc-input">
-															<input type="text" name="billing_city" placeholder="Password">
-														</div>
+												<div class="col-md-12">
+													<p>Password:</p>
+													<div class="arc-input">
+														<input type="text" id="logPassword" name="logPassword" placeholder="Password">
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-md-12">
-														<div class="arc-checkbox">
-															<input type="checkbox" name="rememberme" value="forever" id="nav-rememberme"/>
-															<label for="nav-rememberme"><?=$lang["header-remember-me"]?></label>
-														</div>
+												<div class="col-md-12">
+													<div class="arc-checkbox">
+														<input type="checkbox" id="rememberme" name="rememberme" value="forever" id="nav-rememberme"/>
+														<label for="nav-rememberme"><?=$lang["header-remember-me"]?></label>
 													</div>
 												</div>
-												<a href="#" class="btn btn-md btn-show-reg-form">Show reg form</a>
-												<a href="#" class="btn btn-md pull-right">Send login</a>
+												<a href="#" class="btn btn-md btn-show-reg-form">Joint us</a>
+												<a href="#" class="btn btn-md pull-right sendLogin">Send login</a>
 											</div>
 										</div>
 									</div>
@@ -113,47 +110,38 @@
 							<div id="form-register" style="display:none">
 								<div class="arc-news-box">
 									<h3 class="arc-decorated-h-2"><span>M'inscrire</span></h3>
+									<div class="col-md-12 error-register" style="margin-bottom:-45px;display:none">
+										<div class="alert alert-danger error-register-text" role="alert">This is a danger alert—check it out!</div>
+									</div>
 									<div class="arc-news-box-each-info">
 										<div class="nano">
 											<div class="nano-content">
-												<div class="row">
-												<div class="col-md-6">
-												<p>First Name:</p>
-												<div class="arc-input">
-												<input type="text" name="billing_firstname" placeholder="First Name">
-												</div>
-												</div>
-												<div class="col-md-6">
-												<p>Last Name:</p>
-												<div class="arc-input">
-												<input type="text" name="billing_lastname" placeholder="Last Name">
-												</div>
-												</div>
-												</div>
-												<div class="row">
 												<div class="col-md-12">
-												<p>Email:</p>
-												<div class="arc-input">
-												<input type="text" name="billing_email" placeholder="Email">
+													<p>Username:</p>
+													<div class="arc-input">
+														<input type="text" id="regUsername" name="regUsername" placeholder="Username">
+													</div>
 												</div>
-												</div>
-												</div>
-												<div class="row">
-												<div class="col-md-6">
-												<p>Password:</p>
-												<div class="arc-input">
-												<input type="text" name="billing_city" placeholder="Password">
-												</div>
+												<div class="col-md-12">
+													<p>Email:</p>
+													<div class="arc-input">
+														<input type="text" id="regEmail" name="regEmail" placeholder="Email">
+													</div>
 												</div>
 												<div class="col-md-6">
-												 <p>Confirm password:</p>
-												<div class="arc-input">
-												<input type="text" name="billing_country" placeholder="Confirm password">
+													<p>Password:</p>
+													<div class="arc-input">
+														<input type="password" id="regPassword" name="regPassword" placeholder="Password">
+													</div>
 												</div>
+												<div class="col-md-6">
+													<p>Confirm password:</p>
+													<div class="arc-input">
+														<input type="password" id="regRePassword" name="regRePassword" placeholder="Confirm password">
+													</div>
 												</div>
-												</div>
-												<a href="#" class="btn btn-md btn-show-log-form">Show log form</a>
-												<a href="#" class="btn btn-md pull-right">Send register</a>
+												<a href="#" class="btn btn-md btn-show-log-form">Login</a>
+												<a href="#" class="btn btn-md pull-right sendRegister">Send register</a>
 											</div>
 										</div>
 									</div>

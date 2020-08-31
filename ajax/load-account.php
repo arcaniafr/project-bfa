@@ -40,7 +40,7 @@ if(isset($_GET['loadAccountInfos']) && isset($_GET['accountID'])){
 
 }
 
-if(isset($_GET['loadCharacters']) && isset($_GET['accountID'])){
+else if(isset($_GET['loadCharacters']) && isset($_GET['accountID'])){
 	/* Temporaire, Attente de la liaison en base de donnée */
 	$_response .= '
 			<div id="account-loading" style="display:none">

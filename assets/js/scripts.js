@@ -1,4 +1,7 @@
 $('.btn-show-log-form').click(function(){
+	$('.error-login').hide();
+	$('.error-register').hide();
+	$('#titleLoader').html('Loading...');
 	$('#form-register').hide();
 	$('#form-loading').show();
 	setTimeout(function(){
@@ -7,6 +10,9 @@ $('.btn-show-log-form').click(function(){
 	}, 500);
 });
 $('.btn-show-reg-form').click(function(){
+	$('.error-login').hide();
+	$('.error-register').hide();
+	$('#titleLoader').html('Loading...');
 	$('#form-login').hide();
 	$('#form-loading').show();
 	setTimeout(function(){
@@ -45,3 +51,49 @@ $('.loadAccountInfosClick').click(function(){
 	}, 500);
 });
 
+$('.sendLogin').click(function(){
+	$('.error-login').hide();
+	$('#form-login').hide();
+	$('#titleLoader').html('Login in progress...');
+	$('#form-loading').show();
+	setTimeout(function(){
+		var logEmailUsername = $("#logEmailUsername").val();
+		var logPassword = $("#logPassword").val();
+		$.get('ajax/getRequest.php?sendLogin=true&logEmailUsername='+logEmailUsername+'&logPassword='+logPassword, function(response) {
+			if(response == 0){
+				//window.location = 'account.php';
+			}
+			else{
+				$('#form-login').show();
+				$('.error-login').show();
+				$('.error-login-text').html(response);
+			}
+			$('#form-loading').hide();
+		});
+	}, 1500);
+});
+
+
+$('.sendRegister').click(function(){
+	$('.error-register').hide();
+	$('#form-register').hide();
+	$('#titleLoader').html('Register in progress...');
+	$('#form-loading').show();
+	setTimeout(function(){
+		var username = $("#regUsername").val();
+		var email = $("#regEmail").val();
+		var password = $("#regPassword").val();
+		var repassword = $("#regRePassword").val();
+		$.get('ajax/getRequest.php?sendRegister=true&regUsername='+username+'&regEmail='+email+'&regPassword='+password+'&regRePassword='+repassword, function(response) {
+			if(response == 0){
+				//window.location = 'account.php';
+			}
+			else{
+				$('#form-register').show();
+				$('.error-register').show();
+				$('.error-register-text').html(response);
+			}
+			$('#form-loading').hide();
+		});
+	}, 1500);
+});
