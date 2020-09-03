@@ -16,46 +16,56 @@ if(isset($_GET['sendRegister']) && isset($_GET['regUsername']) && isset($_GET['r
 		$_response .= "Warning : The password does not match with the confirmation password.";
 	}
 	else{
-		$getEmail = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE email='".$regEmail."'");
-		if($getEmail->num_rows == 0){
-			$getUsername = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE username='".$_GET['regUsername']."'");
-			if($getUsername->num_rows == 0){
-				$encrypt_password = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256",strtoupper(hash("sha256", strtoupper($regEmail)).":".strtoupper($regPassword))))))));
-				$createBnetAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".battlenet_accounts (email, sha_pass_hash) VALUES ('".$regEmail."','".$encrypt_password."')");
-				if($createBnetAccount){
-					$battlenet = $db->query("SELECT * FROM ".$_database['auth-db-name'].".battlenet_accounts WHERE email='".$regEmail."'");
-					$bNet = $battlenet->fetch_object();
-					$bNetID = $bNet->id;
-					$createAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".account (username, sha_pass_hash, email, reg_mail, battlenet_account, battlenet_index) VALUES ('".$_regUsername."','".$encrypt_password."','".$_GET['regEmail']."','".$_GET['regEmail']."','".$bNetID."','1')");
-					if($createAccount){
-						$getUserAccount = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE email='".$regEmail."'");
-						$getUserInfos = $getUserAccount->fetch_object();
-						$userAccID = $getUserInfos->id;
-						$regIP = $_SERVER['REMOTE_ADDR'];
-						$createWebsiteAccount = $db->query("INSERT INTO ".$_database['website-db-name'].".account (username, password, email, avatar, battlenet_account, auth_account, register_date, lastIP) VALUES
-						('".$regUsername."','".$encrypt_password."','".$regEmail."','no-avatar.png','".$bNetID."','".$userAccID."','".time()."','".$regIP."')");
-						if($createWebsiteAccount){
-							$_SESSION['arc_auth'] = true;
-							$_SESSION['arc_email'] = $regEmail;
-							$_SESSION['arc_username'] = $regUsername;
-							$_SESSION['arc_userID'] = $userAccID;
-							$_response .= 0;
+		$getAuthEmail = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE email='".$regEmail."'");
+		if($getAuthEmail->num_rows == 0){
+			$getAuthUsername = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE username='".$regUsername."'");
+			if($getAuthUsername->num_rows == 0){
+				$getBnetEmail = $db->query("SELECT * FROM ".$_database['auth-db-name'].".battlenet_accounts WHERE email='".$regEmail."'");
+				if($getBnetEmail->num_rows == 0){
+					$encrypt_password = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256",strtoupper(hash("sha256", strtoupper($regEmail)).":".strtoupper($regPassword))))))));
+					$createBnetAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".battlenet_accounts (email, sha_pass_hash) VALUES ('".$regEmail."','".$encrypt_password."')");
+					if($createBnetAccount){
+						$battlenet = $db->query("SELECT * FROM ".$_database['auth-db-name'].".battlenet_accounts WHERE email='".$regEmail."'");
+						$bNet = $battlenet->fetch_object();
+						$bNetID = $bNet->id;
+						$createAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".account (username, sha_pass_hash, email, reg_mail, battlenet_account, battlenet_index) VALUES 
+						('".$regUsername."','".$encrypt_password."','".$regEmail."','".$regEmail."','".$bNetID."','1')");
+						if($createAccount){
+							$getUserAccount = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE email='".$regEmail."'");
+							$getUserInfos = $getUserAccount->fetch_object();
+							$userAccID = $getUserInfos->id;
+							$regIP = $_SERVER['REMOTE_ADDR'];
+							$createWebsiteAccount = $db->query("INSERT INTO ".$_database['website-db-name'].".account (username, password, email, avatar, battlenet_account, auth_account, register_date, lastIP) VALUES
+							('".$regUsername."','".$encrypt_password."','".$regEmail."','no-avatar.png','".$bNetID."','".$userAccID."','".time()."','".$regIP."')");
+							if($createWebsiteAccount){
+								$_SESSION['arc_auth'] = true;
+								$_SESSION['arc_email'] = $regEmail;
+								$_SESSION['arc_username'] = $regUsername;
+								$_SESSION['arc_userID'] = $userAccID;
+								$_response .= 0;
+							}
+							else{
+								$_response .= "Error : An error occured in the create website account, contact admin!";
+							}
 						}
 						else{
-							$_response .= "An account error occurred, contact admin!";
+							$_response .= "Error : An error occured in the create auth account, contact admin!";
 						}
 					}
 					else{
-						$_response .= "An account error occurred, contact admin!";
+						$_response .= "Error : An error occured in the create bnet account, contact admin!";
 					}
 				}
 				else{
-					$_response .= "An Bnet account error occurred, contact admin!";
+					$_response .= "The email for create BnetAccount is already used!";
 				}
 			}
 			else{
 				$_response .= "The Username is already in use!";
 			}
+		}
+		else{
+			$_response .= "The email for create account is already used!";
 		}
 	}
 }
@@ -81,17 +91,22 @@ else if(isset($_GET['sendLogin']) && isset($_GET['logEmailUsername']) && isset($
 		}
 		$encrypt_password = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256",strtoupper(hash("sha256", strtoupper($email)).":".strtoupper($logPassword))))))));
 		$getAccount = $db->query("SELECT * FROM ".$_database['website-db-name'].".account WHERE email='".$email."'");
-		$getAccountInfo = $getAccount->fetch_object();
-		if($encrypt_password == $getAccountInfo->password){
-			$_SESSION['arc_auth'] = true;
-			$_SESSION['arc_email'] = $getAccountInfo->email;
-			$_SESSION['arc_username'] = $getAccountInfo->username;
-			$_SESSION['arc_userID'] = $getAccountInfo->auth_account;
-			$db->query("UPDATE ".$_database['website-db-name'].".account SET lastIP='".$_SERVER['REMOTE_ADDR']."', lastConnect=".time()." WHERE email='".$email."'");
-			$_response .= 0;
+		if($getAccount->num_rows != 0){
+			$getAccountInfo = $getAccount->fetch_object();
+			if($encrypt_password == $getAccountInfo->password){
+				$_SESSION['arc_auth'] = true;
+				$_SESSION['arc_email'] = $getAccountInfo->email;
+				$_SESSION['arc_username'] = $getAccountInfo->username;
+				$_SESSION['arc_userID'] = $getAccountInfo->auth_account;
+				$db->query("UPDATE ".$_database['website-db-name'].".account SET lastIP='".$_SERVER['REMOTE_ADDR']."', lastConnect=".time()." WHERE email='".$email."'");
+				$_response .= 0;
+			}
+			else{
+				$_response .= "Le mot de passe est incorrect !";
+			}
 		}
 		else{
-			$_response .= "Le mot de passe est incorrect !".$email;
+			$_response .= "Le compte n'existe pas !";
 		}
 	}
 }
