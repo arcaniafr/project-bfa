@@ -44,7 +44,7 @@
 				<i class="glyphicon glyphicon-search"></i>
 			 </a>
 			</li>
-			<?php if(isset($_SESSION['gamesite_userID'])){
+			<?php if(isset($_SESSION['arc_userID'])){
 				echo '<li class="dropdown dropdown-hover dropdown-cart">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 			<i class="glyphicon glyphicon-shopping-cart"></i>
