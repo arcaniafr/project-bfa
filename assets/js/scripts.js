@@ -27,9 +27,21 @@ setTimeout(function(){
 	$('.preloader-wrapp').hide();
 }, 500);
 
+$('.loadAccountInfosClick').click(function(){
+	$('#account-loading').show();
+	$("[class^=load]").removeClass('active');
+	$('.loadAccountLi').addClass('active');
+	setTimeout(function(){
+		$.get('ajax/load-account.php?loadAccountInfos=true&accountID=1', function(response) {
+			$('#account-loading').hide();
+			$('.loadAccountInfos').html(response);
+		});
+	}, 500);
+});
+
 $('.loadCharactersClick').click(function(){
 	$('#account-loading').show();
-	$('.loadAccountLi').removeClass('active');
+	$("[class^=load]").removeClass('active');
 	$('.loadCharactersLi').addClass('active');
 	setTimeout(function(){
 		$.get('ajax/load-account.php?loadCharacters=true&accountID=1', function(response) {
@@ -39,15 +51,34 @@ $('.loadCharactersClick').click(function(){
 	}, 500);
 });
 
-$('.loadAccountInfosClick').click(function(){
+$('.loadMessagesClick').click(function(){
 	$('#account-loading').show();
-	$('.loadAccountLi').addClass('active');
-	$('.loadCharactersLi').removeClass('active');
+	$("[class^=load]").removeClass('active');
+	$('.loadMessagesLi').addClass('active');
 	setTimeout(function(){
-		$.get('ajax/load-account.php?loadAccountInfos=true&accountID=1', function(response) {
+		$.get('ajax/load-account.php?loadMessagesInfos=true&accountID=1', function(response) {
 			$('#account-loading').hide();
 			$('.loadAccountInfos').html(response);
 		});
+	}, 500);
+});
+
+$('.loadMessagesInboxClick').click(function(){
+	$('#account-loading').show();
+	$("[class^=messages-]").hide();
+	setTimeout(function(){
+		$('.messages-inbox-loading').show();
+	}, 500);
+});
+
+$('.loadMessagesComposeClick').click(function(){
+	alert();
+	$('#account-loading').show();
+	$("[class^=messages-]").hide();
+	$("[class^=messagerie]").removeClass('active');
+	$('.messagerieComposeLi').addClass('active');
+	setTimeout(function(){
+		$('.messages-compose-loading').show();
 	}, 500);
 });
 

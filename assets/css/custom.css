@@ -1093,7 +1093,6 @@ arc-search .angled-bg .date{margin-top:10px;margin-right:20px}
 .arc-user-navigation+.info{padding-bottom:120px}
 .arc-messages tbody>tr>td{padding:1.5rem}
 .arc-messages tbody>tr{-webkit-transition:.3s background-color;-o-transition:.3s background-color;transition:.3s background-color}
-.arc-messages .message-unread{background-color:rgba(255,255,255,.1)}
 .arc-messages .message-from{width:300px}
 .arc-messages .message-from .angled-img{float:left;width:80px;margin-right:20px}
 .arc-messages .message-from .angled-img img{width:auto;opacity:1}
@@ -1101,7 +1100,7 @@ arc-search .angled-bg .date{margin-top:10px;margin-right:20px}
 .arc-messages .message-description .message-description-name{font-size:1.6rem;font-weight:600;text-decoration:none}
 .arc-messages .message-description .message-excerpt{margin-top:.5rem;font-size:1.2rem}
 .arc-messages .message-action{position:relative;width:90px}
-.arc-messages .message-action .messages-count{position:absolute;top:50%;left:50%;min-width:30px;height:30px;padding-right:5px;padding-left:5px;margin-top:-15px;margin-left:-15px;font-weight:600;line-height:30px;text-align:center;background-color:rgba(255,255,255,.1);border-radius:4px}
+.arc-messages .message-action .messages-new{position:absolute;top:50%;left:50%;min-width:30px;height:30px;padding-right:5px;padding-left:5px;margin-top:-15px;margin-left:-15px;font-weight:600;line-height:30px;text-align:center;background-color:rgba(255,255,255,.1);border-radius:4px}
 .arc-messages .message-action .message-delete{float:right;opacity:0;-webkit-transition:.3s opacity,.3s color;-o-transition:.3s opacity,.3s color;transition:.3s opacity,.3s color}
 .arc-messages tbody>tr:hover .message-action .message-delete{opacity:1}
 .arc-login .arc-banner .info h2{margin-top:0;margin-bottom:3rem;font-size:4rem}

@@ -45,7 +45,7 @@
 <ul>
 <li class="loadAccountLi active"><a href="#" class="loadAccountInfosClick">Mon compte</a></li>
 <li class="loadCharactersLi"><a href="#" class="loadCharactersClick">Characters</a></li>
-<li><a href="#">Messages <span class="badge">0</span></a></li>
+<li class="loadMessagesLi"><a href="#" class="loadMessagesClick">Messages <span class="badge">0</span></a></li>
 <li><a href="#">Settings</a></li>
 </ul>
 </div>
