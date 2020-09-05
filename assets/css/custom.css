@@ -1446,12 +1446,6 @@ footer .copyright{position:relative;padding:30px 10px;text-align:center;backgrou
 	position:relative;
 	overflow:hidden
 }
-.nano .nano-content,.nano>.nano-pane{
-	position:absolute;
-	top:0;
-	right:0;
-	bottom:0
-}
 .nano .nano-content{
 	left:0;
 	overflow:scroll;
