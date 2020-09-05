@@ -18,9 +18,6 @@
 					<a href="index.php"><?=$lang["header-index"]?></a>
 				</li>
 				<li>
-					<a href="#"><?=$lang["header-store"]?></a>
-				</li>
-				<li>
 					<a href="#"><?=$lang["header-forum"]?></a>
 				</li>
 				<li>
@@ -38,13 +35,16 @@
 				<div class="dropdown-menu">
 					<ul role="menu">
 						<li>
+							<a href="account.php"> '.$lang["header-viewAccount"].' </a>
+						</li>
+						<li>
 							<a href="#" class="sendDisconnect"> '.$lang["header-disconnect"].' </a>
 						</li>
 					</ul>
 				</div>
 			</li>
 			<li>
-				<a href="store.php">'.$lang["header-store"].'</a>
+				<a href="#">'.$lang["header-store"].'</a>
 			</li>
 			<li class="dropdown dropdown-hover dropdown-cart">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

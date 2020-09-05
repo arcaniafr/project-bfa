@@ -14,6 +14,7 @@
 	$lang["header-register"] = "M'inscrire";
 	$lang["header-disconnect"] = "Me déconnecter";
 	$lang["modal-disconnect-text"] = "Déconnexion en cours ...";
+	$lang["header-viewAccount"] = "Voir mon compte";
 	
 	/* Modal login register language */	
 	$lang["modalLogin-Title"] = "Me connecter";

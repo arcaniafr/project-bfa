@@ -14,6 +14,7 @@
 	$lang["header-register"] = "Register";
 	$lang["header-disconnect"] = "Logout";
 	$lang["modal-disconnect-text"] = "Logout in progress ...";
+	$lang["header-viewAccount"] = "View my account";
 	
 	/* Modal login register language */	
 	$lang["modalLogin-Title"] = "Login";
