@@ -31,4 +31,22 @@
 	$lang["modalLogReg-FormReg-Password"] = "Password";
 	$lang["modalLogReg-FormReg-RePassword"] = "Confirm password";
 	
+	/* store language */	
+	$lang['store-select-server'] = "Select a server";
+	$lang['store-select-character'] = "Select a character";
+	$lang['store-no-characters'] = "You have no characters";
+	$lang['store-select-category'] = "Select a category";
+	$lang["modal-lang-change-text"] = "Changement de langue en cours"; // english if it's french
+	$lang['store-filter-title-category'] = "Séléctionnez une catégorie";
+	$lang['store-filter-all-category'] = "Select a category";
+	$lang['store-filter-chests'] = "Chests";
+	$lang['store-filter-golds'] = "Golds";
+	$lang['store-filter-flying'] = "Flying";
+	$lang['store-filter-mounts'] = "Mounts";
+	$lang['store-filter-equipments'] = "Equipments";
+	$lang['store-filter-leveling'] = "Leveling";
+	$lang['store-filter-services'] = "Services";
+	$lang['store-filter-divers'] = "Others";
+	$lang['store-search-result-zero'] = "No product found !";
+	
 ?>

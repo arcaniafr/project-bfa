@@ -1,13 +1,25 @@
 <?php
 	session_start();
 	include("core/functions.php");
-	include('includes/languages/french.php'); // temporaire, voir le changement de langue par la suite.
-	include_once("../core/functions.php");
 	$auth = new Auth;
 	if(!$auth->isLogged()){
 		header('Location: index.php?notConnected=true');
 		exit();
 	}
+	if(!isset($_SESSION['langID'])){
+		$_SESSION['langID'] = 0;
+	}
+	
+	if(isset($_SESSION['langID']) && ($_SESSION['langID']==1)){
+		require_once 'includes/languages/french.php';
+	}
+	elseif(isset($_SESSION['langID']) && ($_SESSION['langID']==2)){
+		require_once 'includes/languages/spanish.php';
+	}
+	else{
+		require_once 'includes/languages/english.php';
+	}
+	
 ?>
 <!DOCTYPE html>
 

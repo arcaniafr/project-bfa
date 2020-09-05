@@ -44,7 +44,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="#">'.$lang["header-store"].'</a>
+				<a href="store.php">'.$lang["header-store"].'</a>
 			</li>
 			<li class="dropdown dropdown-hover dropdown-cart">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -84,8 +84,8 @@
 					</a>
 					<div class="dropdown-menu">
 						<h5 style="margin-top:-10px;"><center><?=$site['languages']?></center></h5>
-						<h6 class="lang-style"><a href="#" class="load-french-language"><img src="assets/images/flag-fr.jpg" width="20px"/> Français</a></h6>
-						<h6 class="lang-style"><a href="#" class="load-english-language"><img src="assets/images/flag-en.jpg" width="20px"/> English</a></h6>
+						<h6 class="<?php if(isset($_SESSION['langID'])){ if($_SESSION['langID']==1) echo 'lang-selected'; }?> lang-style"><a href="#" class="load-french-language"><img src="assets/images/flag-fr.jpg" width="20px"/> Français</a></h6>
+						<h6 class="<?php if(isset($_SESSION['langID'])){ if($_SESSION['langID']==0) echo 'lang-selected'; }?> lang-style"><a href="#" class="load-english-language"><img src="assets/images/flag-en.jpg" width="20px"/> English</a></h6>
 					</div>
 				</li>
 			</ul>
@@ -219,3 +219,18 @@
 	</div>
 </div>
 <!-- End disconnect Modal -->
+
+<!-- Start change language Modal -->
+<div class="modal fade modalLoadLanguage" tabindex="-1" role="dialog" aria-labelledby="modalLoadLanguageLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<center>
+					<h4><?=$lang["modal-lang-change-text"]?></h4>
+					<div class="mfp-preloader preloader"></div>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End change language Modal -->

@@ -1,13 +1,25 @@
 <?php
 	session_start();
 	include("core/functions.php");
-	include('includes/languages/french.php'); // temporaire, voir le changement de langue par la suite.
-	include_once("../core/functions.php");
 	$auth = new Auth;
 	if(!$auth->isLogged()){
 		header('Location: index.php?notConnected=true');
 		exit();
 	}
+	if(!isset($_SESSION['langID'])){
+		$_SESSION['langID'] = 0;
+	}
+	
+	if(isset($_SESSION['langID']) && ($_SESSION['langID']==1)){
+		require_once 'includes/languages/french.php';
+	}
+	elseif(isset($_SESSION['langID']) && ($_SESSION['langID']==2)){
+		require_once 'includes/languages/spanish.php';
+	}
+	else{
+		require_once 'includes/languages/english.php';
+	}
+	
 ?>
 <!DOCTYPE html>
 
@@ -25,7 +37,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 <link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<body>
+<body onload="initApps()">
 
 	<div class="preloader-wrapp">
 		<h2><?=$_config['website-title']?></h2>
@@ -56,182 +68,38 @@
 					<li id="news"><span>Chests</span></li>
 					<li id="news"><span>Mounts</span></li>
 				</ul>
-				<div class="isotope-list">
-					<a href="#" class="item angled-bg">
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-xs-4">
-								<div class="angled-img">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-10 col-md-10 col-xs-8">
-								<div class="row">
-									<div class="col-xs-6 col-md-9">
-										<h4 onclick="showProductDetail(1);return false;">10000 gold coins <span class="caret"></span></h4>
-										<h6 class="store-product-detail-1 " style="display:none">details 1 details</br>details details details</br>details details details</br>details details details</h6>
-									</div>
-									<div class="col-xs-6 col-md-3 align-right">
-										<div class="price">2 <img src="assets/images/jtn.png" width="20px"/></div>
-										<button class="btn btn-xs btn-primary">Ajouter au panier</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="item angled-bg" data-filters="popular">
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-xs-4">
-								<div class="angled-img">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-10 col-md-10 col-xs-8">
-								<div class="row">
-									<div class="col-xs-6 col-md-9">
-										<h4 onclick="showProductDetail(2);return false;">10000 gold coins <span class="caret"></span></h4>
-										<h6 class="store-product-detail-2" style="display:none">details 2 details</br>details details details</br>details details details</br>details details details</h6>
-									</div>
-									<div class="col-xs-6 col-md-3 align-right">
-										<div class="price">2 <img src="assets/images/jtn.png" width="20px"/></div>
-										<button class="btn btn-xs btn-primary">Ajouter au panier</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="item angled-bg" data-filters="popular">
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-xs-4">
-								<div class="angled-img">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-10 col-md-10 col-xs-8">
-								<div class="row">
-									<div class="col-xs-6 col-md-9">
-										<h4 onclick="showProductDetail(3);return false;">10000 gold coins <span class="caret"></span></h4>
-										<h6 class="store-product-detail-3" style="display:none">details 3 details</br>details details details</br>details details details</br>details details details</h6>
-									</div>
-									<div class="col-xs-6 col-md-3 align-right">
-										<div class="price">2 <img src="assets/images/jtn.png" width="20px"/></div>
-										<button class="btn btn-xs btn-primary">Ajouter au panier</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="item angled-bg" data-filters="popular">
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-xs-4">
-								<div class="angled-img">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-10 col-md-10 col-xs-8">
-								<div class="row">
-									<div class="col-xs-6 col-md-9">
-										<h4 onclick="showProductDetail(4);return false;">10000 gold coins <span class="caret"></span></h4>
-										<h6 class="store-product-detail-4" style="display:none">details 3 details</br>details details details</br>details details details</br>details details details</h6>
-									</div>
-									<div class="col-xs-6 col-md-3 align-right">
-										<div class="price">2 <img src="assets/images/jtn.png" width="20px"/></div>
-										<button class="btn btn-xs btn-primary">Ajouter au panier</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<a href="#" class="item angled-bg" data-filters="popular">
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-xs-4">
-								<div class="angled-img">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-10 col-md-10 col-xs-8">
-								<div class="row">
-									<div class="col-xs-6 col-md-8">
-										<h4 onclick="showProductDetail(5);return false;">10000 gold coins <span class="caret"></span></h4>
-										<h6 class="store-product-detail-5" style="display:none">details 3 details</br>details details details</br>details details details</br>details details details</h6>
-									</div>
-									<div class="col-xs-6 col-md-4 align-right">
-										<div class="price">2 <img src="assets/images/jtn.png" width="20px"/></div>
-										<button class="btn btn-xs btn-primary">Ajouter au panier</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</a>
+				<div class="arc-store-search">
+					<h4>Select server, character and category :</h4>
+					<div class="col-md-4">
+						<select class="form-control" onchange="loadCharacters(this.value);">
+							<option value="0"><?=$lang['store-select-server']?></option>';
+							<?php $server = $db->query('SELECT * FROM '.$_database['auth-db-name'].'.realmlist');
+							while($servers = $server->fetch_object()){
+								echo '<option value="'.$servers->id.'">'.$servers->name.'</option>';
+							}?>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control loadCharacters" onchange="loadCategories(this.value);">
+							<option value="0"><?=$lang['store-select-character']?></option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control nk-store-select loadCategory" onchange="loadProducts(this.value);">
+							<option value="0"><?=$lang['store-select-category']?></option>
+						</select>
+					</div>
+					<input type="hidden" name="server" class="store_server" value=""/>
+					<input type="hidden" name="character" class="store_character" value=""/>
+					<input type="hidden" name="category" class="store_category" value=""/>
 				</div>
+				<div class="isotope-list loadProducts"></div>
 			</div>
 			<div class="col-md-3">
 				<div class="side-block">
 					<h4 class="block-title">Your cart</h4>
-					<div class="block-content p-0">
-						<div class="row arc-side-news">
-							<div class="col-xs-3 col-md-3">
-								<a href="#" class="angled-img-small">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-9 col-md-9">
-								<h5 class="ellipsis">10000 gold coins<a href="" title="Remove this item"><span class="pull-right glyphicon glyphicon-remove"></span></a></h5>
-								<span class="price">2 <img src="assets/images/jtn.png" width="20px"/></span>
-							</div>
-						</div>
-						<div class="row arc-side-news">
-							<div class="col-xs-3 col-md-3">
-								<a href="#" class="angled-img-small">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-9 col-md-9">
-								<h5 class="ellipsis">50000 gold coins<a href="" title="Remove this item"><span class="pull-right glyphicon glyphicon-remove"></span></a></h5>
-								<span class="price">5 <img src="assets/images/jtn.png" width="20px"/></span>
-							</div>
-						</div>
-						<div class="row arc-side-news">
-							<div class="col-xs-3 col-md-3">
-								<a href="#" class="angled-img-small">
-									<div class="img">
-										<img src="assets/images/store/money.jpg" alt="">
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-9 col-md-9">
-								<h5 class="ellipsis">500000 gold coins<a href="" title="Remove this item"><span class="pull-right glyphicon glyphicon-remove"></span></a></h5>
-								<span class="price">20 <img src="assets/images/jtn.png" width="20px"/></span>
-							</div>
-						</div>
-						<div class="row arc-side-news">
-							<div class="col-xs-3 col-md-3">
-								<a href="#" class="angled-img-small">
-									<div class="img">
-										<img src="assets/images/store/book_06.jpg" alt="">
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-9 col-md-9">
-								<h5 class="ellipsis">Flight in draenor<a href="" title="Remove this item"><span class="pull-right glyphicon glyphicon-remove"></span></a></h5>
-								<span class="price">5 <img src="assets/images/jtn.png" width="20px"/></span>
-							</div>
-						</div>
+					<div class="block-content p-0 productsCart">
 					</div>
-					<h5 class="block-bottom">TOTAL: 5 <img src="assets/images/jtn.png" width="20px"/><button class="btn btn-xs btn-primary pull-right">Payer</button></h5>
 				</div>
 			</div>
 		</div>

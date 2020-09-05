@@ -4,6 +4,30 @@ $(document).ready(function() {
 		$('.preloader-wrapp').hide();
 	}, 500);
 
+	$('.load-french-language').on('click',function(){
+		$('.modalLoadLanguage').modal('show');
+		setTimeout(function(){
+			$.get('ajax/loadLanguage.php?languageChange=1');
+			location.reload();
+		}, 2000);
+	});
+	
+	$('.load-english-language').on('click',function(){
+		$('.modalLoadLanguage').modal('show');
+		setTimeout(function(){
+			$.get('ajax/loadLanguage.php?languageChange=0');
+			location.reload();
+		}, 2000);
+	});
+	
+	$('.load-espagnol-language').on('click',function(){
+		$('.modalLoadLanguage').modal('show');
+		setTimeout(function(){
+			$.get('ajax/loadLanguage.php?languageChange=2');
+			location.reload();
+		}, 2000);
+	});
+	
 	$('.btn-show-modal-log-form').click(function(){
 		$('.error-login-modal').hide();
 		$('.modal-logRegLoading-title').html('Loading...');
@@ -145,6 +169,79 @@ $(document).ready(function() {
 
 });
 
+function initApps(){
+	$.get('ajax/getCart.php?initCart=true');
+	getAllCartItems();
+	return false;
+}
+
 function showProductDetail(id){
 	$(".store-product-detail-"+id).toggle();
 };
+
+function deleteCart(){
+	$.get('ajax/getCart.php?deleteCart=true');
+	return false;
+}
+
+function loadProductSearch(){
+	var server = 0;
+	var character = 0;
+	var category = 0;
+	$.get('ajax/getProducts.php?server='+server+'&character='+character+'&category='+category, function(response) {
+		$('.loadProducts').html(response);
+	});
+	return false;
+}
+
+function loadCharacters(server){
+	$.get('ajax/getCharacters.php?server='+server, function(response) {
+		$('.loadCharacters').html(response);
+		$('.store_server').val(server);
+		category = 0;
+		loadProducts(category);
+	});
+	return false;
+}
+
+function loadCategories(character){
+	$.get('ajax/getCategories.php?character='+character, function(response) {
+		$('.loadCategory').html(response);
+		$('.store_character').val(character);
+		category = 0;
+		loadProducts(category);
+	});
+	return false;
+}
+
+function loadProducts(category){
+	server = $('.store_server').val();
+	character = $('.store_character').val();
+	
+	$.get('ajax/getProducts.php?server='+server+'&character='+character+'&category='+category, function(response) {
+		$('.loadProducts').html(response);
+		$('.store_category').val(category);
+	});
+	return false;
+}
+
+function getAllCartItems(){
+	$.get('ajax/getCart.php?getAllCartItems=true', function(response) {
+		$('.productsCart').html(response);
+	});
+	return false;
+}
+
+function addProductCart(pID){
+	$.get('ajax/getCart.php?addItem=true&itemID='+pID, function(response) {
+		getAllCartItems();
+	});
+	return false;
+}
+	
+function delProductCart(pID){
+	$.get('ajax/getCart.php?delItem=true&itemID='+pID, function(response) {
+		getAllCartItems();
+	});
+	return false;
+}
