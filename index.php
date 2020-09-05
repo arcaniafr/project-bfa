@@ -37,6 +37,11 @@
 						echo '<div class="col-md-12">
 							<div class="alert alert-danger" role="alert">You have been redirected because you are not logged in!</div>
 						</div>';
+					}
+					else if(isset($_GET['disconnected']) && $_GET['disconnected'] == "success"){
+						echo '<div class="col-md-12">
+							<div class="alert alert-success" role="alert">Success : Disconnected!</div>
+						</div>';
 					}?>
 					<div class="row">
 						<div class="col-md-6">
@@ -96,7 +101,7 @@
 												<div class="col-md-12">
 													<p>Password:</p>
 													<div class="arc-input">
-														<input type="text" id="logPassword" name="logPassword" placeholder="Password">
+														<input type="password" id="logPassword" name="logPassword" placeholder="Password">
 													</div>
 												</div>
 												<div class="col-md-12">
