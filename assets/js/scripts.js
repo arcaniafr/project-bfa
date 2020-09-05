@@ -86,7 +86,8 @@ $(document).ready(function() {
 		}, 2000);
 		return false;
 	});
-
+	
+	
 	$('.loadAccountInfosClick').click(function(){
 		$('#account-loading').show();
 		$("[class^=load]").removeClass('active');
@@ -143,3 +144,7 @@ $(document).ready(function() {
 	});
 
 });
+
+function showProductDetail(id){
+	$(".store-product-detail-"+id).toggle();
+};
