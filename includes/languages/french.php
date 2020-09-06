@@ -48,5 +48,36 @@
 	$lang['store-filter-services'] = "Services";
 	$lang['store-filter-divers'] = "Divers";
 	$lang['store-search-result-zero'] = "Aucun article trouvé !";
+	$lang['store-cart-empty'] = "Votre panier est vide !";
+	
+	/* account language */
+	$lang['account-link-account'] = "Mon compte";
+	$lang['account-link-characters'] = "Mes personnages";
+	$lang['account-link-messages'] = "Messagerie";
+	$lang['account-link-settings'] = "Paramètres";
+	$lang['account-count-posts'] = "Commentaires";
+	$lang['account-count-bugs'] = "Bugs signalés";
+	$lang['account-count-followers'] = "Followers";
+	$lang['account-add-friend'] = "Demande d'ami";
+	$lang['account-send-message'] = "Contacter l'utilisateur";
+	$lang['account-loading'] = "Chargement";
+	$lang['account-rank-title'] = "Rang";
+	$lang['account-rank-0'] = "Nouveau membre";
+	$lang['account-rank-1'] = "Membre";
+	$lang['account-rank-2'] = "Membre premium";
+	$lang['account-rank-3'] = "Administrateur";
+	$lang['account-rank-4'] = "Développeur";
+	$lang['account-pseudo-title'] = "Identifiant";	
+	$lang['account-email-title'] = "Email";
+	$lang['account-register-date-title'] = "Inscrit le";
+	$lang['account-credit-title'] = "Mes jetons";
+	$lang['account-last-ip-title'] = "Dernière IP";
+	$lang['account-last-connect-title'] = "Dernière connexion le";
+	$lang['account-btn-mod-account'] = "Modifier mon compte";
+	$lang['account-btn-character-unlock'] = "Débloquer";
+	$lang['account-modal-unblock-character-title'] = 'Débloquer votre personnage';
+	$lang['account-modal-unblock-character-desc'] = 'Votre personnage doit-être déconnecté du jeux.</br></br>Votre personnage sera envoyé au dernier lieu choisis avec la pierre de foyer !';
+	$lang['account-modal-unblock-character-not-homebind'] = 'Débloquage de votre personnage impossible ! Contactez un administrateur.';
+	
 	
 ?>
