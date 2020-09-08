@@ -233,11 +233,7 @@ else if(isset($_GET['loadCharacters']) && isset($_GET['accountID'])){
 				}
 		else{
 			$_response .= '<div class="col-lg-12 col-md-12 col-sm-6">
-				<ul class="arc-chars">
-					<li>
-						<h5>Vous n\'avez aucun personnage !</h3>
-					</li>
-				</ul>
+						<center><h5>Vous n\'avez aucun personnage !</h5></center>
 			</div>';
 		}
 		$_response .= '</div>
