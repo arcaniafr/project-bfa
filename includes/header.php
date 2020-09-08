@@ -18,10 +18,10 @@
 					<a href="index.php"><?=$lang["header-index"]?></a>
 				</li>
 				<li>
-					<a href="#"><?=$lang["header-forum"]?></a>
+					<a href="forums.php"><?=$lang["header-forum"]?></a>
 				</li>
 				<li>
-					<a href="#"><?=$lang["header-bugtracker"]?></a>
+					<a href="bugtracker.php"><?=$lang["header-bugtracker"]?></a>
 				</li>
 				<li>
 					<a href="contact.php"><?=$lang["header-contact"]?></a>
