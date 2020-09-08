@@ -19,7 +19,8 @@
 	else{
 		require_once 'includes/languages/english.php';
 	}
-	
+	$accs = $db->query('SELECT * FROM '.$_database['website-db-name'].'.account WHERE auth_account="'.$_SESSION['arc_userID'].'"');
+	$acc = $accs->fetch_object();
 ?>
 <!DOCTYPE html>
 
@@ -55,10 +56,10 @@
 <div class="arc-user-navigation">
 <div class="container">
 <ul>
-<li class="loadAccountLi active"><a href="#" class="loadAccountInfosClick">Mon compte</a></li>
-<li class="loadCharactersLi"><a href="#" class="loadCharactersClick">Characters</a></li>
-<li class="loadMessagesLi"><a href="#" class="loadMessagesClick">Messages <span class="badge">0</span></a></li>
-<li><a href="#">Settings</a></li>
+<li class="loadAccountLi active"><a href="#" class="loadAccountInfosClick"><?=$lang['account-link-account']?></a></li>
+<li class="loadCharactersLi"><a href="#" class="loadCharactersClick"><?=$lang['account-link-characters']?></a></li>
+<li class="loadMessagesLi"><a href="#" class="loadMessagesClick"><?=$lang['account-link-messages']?> <span class="badge">0</span></a></li>
+<li><a href="#"><?=$lang['account-link-settings']?></a></li>
 </ul>
 </div>
 </div>
@@ -69,26 +70,26 @@
 <img src="assets/images/default-user-image.png" alt="">
 </div>
 <div class="user-data">
-<h2>Username</h2>
+<h2><?=$acc->username?></h2>
 <div class="activity">
 <div>
 <div class="num">6</div>
-<div class="title">Posts</div>
+<div class="title"><?=$lang['account-count-posts']?></div>
 </div>
 <div>
 <div class="num">1</div>
-<div class="title">Bug signaled</div>
+<div class="title"><?=$lang['account-count-bugs']?></div>
 </div>
 <div>
 <div class="num">9</div>
-<div class="title">Followers</div>
+<div class="title"><?=$lang['account-count-followers']?></div>
 </div>
 </div>
 </div>
 </div>
 <div class="container mt-20">
-<a href="#" class="btn btn-sm btn-default ml-0">Add Friend</a>
-<a href="#" class="btn btn-sm btn-default">Private Message</a>
+<a href="#" class="btn btn-sm btn-primary ml-0"><?=$lang['account-add-friend']?></a>
+<a href="#" class="btn btn-sm btn-success"><?=$lang['account-send-message']?></a>
 </div>
 </div>
 </div>
@@ -103,7 +104,7 @@
 				<div class="nano">
 					<div class="nano-content" style="margin-top:20px">
 						<center>
-							<h4>Loading...</h4>
+							<h4><?=$lang['account-loading']?>...</h4>
 							<div class="mfp-preloader preloader"></div>
 						</center>
 					</div>
@@ -116,30 +117,40 @@
 			<img src="assets/images/no-avatar.png" style="padding-top:10px">
 		</div>
 		<div class="col-md-10">
-			<h5>Pseudo : arcaniafr</h5>
-			<h5>Email : arcaniafr@gmail.com</h5>
-			<h5>Inscrit le : 26/11/2017</h5>
-			<h5>Mes personnages : 9</h5>
-			<h5>Mes jetons : 7<img src="assets/images/jtn.png" width="30px"></h5>
-			<h5>Dernière IP : 127.0.0.1</h5>
-			<h5>Dernière connexion : 30/08/2020</h5>
-			<h5>Rang : <span class="glyphicon glyphicon-star" style="color:#d42121">Développeur</span></h5>
-			<div class="nk-gap-1"></div>
-			<button class="btn btn-theme btn-block">Modifier mes informations</button>
+				<h5><?=$lang['account-pseudo-title']?> : <?=$acc->username?></h5>
+				<h5><?=$lang['account-email-title']?> : <?=$acc->email?></h5>
+				<h5><?=$lang['account-register-date-title']?> : <?=date('d/m/Y',$acc->register_date)?></h5>
+				<h5><?=$lang['account-credit-title']?> : <?=$acc->credit?> <img src="assets/images/jtn.png" width="20px"></h5>
+				<h5><?=$lang['account-last-ip-title']?> : <?=$acc->lastIP?></h5>
+				<h5><?=$lang['account-last-connect-title']?> : <?=date('d/m/Y',$acc->lastConnect)?></h5>
+				<?php if($acc->rank == 0)
+					echo '<h5>'.$lang['account-rank-title'].' : <span class="glyphicon glyphicon-star" style="color:#21abd4">'.$lang['account-rank-0'].'</span></h5>';
+				else if($acc->rank == 1)
+					echo '<h5>'.$lang['account-rank-title'].' : <span class="glyphicon glyphicon-star" style="color:#a5d421">'.$lang['account-rank-1'].'</span></h5>';
+				else if($acc->rank == 2)
+					echo '<h5>'.$lang['account-rank-title'].' : <span class="glyphicon glyphicon-star" style="color:#21d499">'.$lang['account-rank-2'].'</span></h5>';
+				else if($acc->rank == 3)
+					echo '<h5>'.$lang['account-rank-title'].' : <span class="glyphicon glyphicon-star" style="color:#9c21d4">'.$lang['account-rank-3'].'</span></h5>';
+				else if($acc->rank == 4)
+					echo '<h5>'.$lang['account-rank-title'].' : <span class="glyphicon glyphicon-star" style="color:#d42121">'.$lang['account-rank-4'].'</span></h5>';
+				
+				echo '<div class="nk-gap-1"></div>
+				<button class="btn btn-warning btn-block">'.$lang['account-btn-mod-account'].'</button>';
+				?>
 		</div>
 	</div>
 </div>
 
 <div class="col-md-3">
 <div class="side-block arc-container-box">
-	<h4 class="block-title">Mon compte</h4>
+	<h4 class="block-title"><?=$lang['account-link-account']?></h4>
 	<div class="arc-widget-content">
-		<h5><a href="account.php"><span class="glyphicon glyphicon-home"></span> Afficher/modifier mon profil</a></h5>
-		<h5><a href="characters.php"><span class="glyphicon glyphicon-user"></span> Gérer mes personnages</a></h5>
-		<h5><a href="#"><span class="glyphicon glyphicon-fire"></span> Accéder à la boutique</a></h5>
+		<h5><a href="#" class="loadAccountInfosClick"><span class="glyphicon glyphicon-home"></span> Afficher/modifier mon profil</a></h5>
+		<h5><a href="#" class="loadCharactersClick"><span class="glyphicon glyphicon-user"></span> Gérer mes personnages</a></h5>
+		<h5><a href="store.php"><span class="glyphicon glyphicon-fire"></span> Accéder à la boutique</a></h5>
 		<h5><a href="#"><span class="glyphicon glyphicon-download"></span> Télécharger le Launcher</a></h5>
 		<div class="nk-gap-1"></div>
-		<button type="button" class="btn btn-primary send-disconnect">Me déconnecter</button>
+		<button type="button" class="btn btn-primary sendDisconnect">Me déconnecter</button>
 	</div>
 </div>
 <div class="side-block arc-container-box">

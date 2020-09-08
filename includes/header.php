@@ -45,31 +45,6 @@
 			</li>
 			<li>
 				<a href="store.php">'.$lang["header-store"].'</a>
-			</li>
-			<li class="dropdown dropdown-hover dropdown-cart">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-			<i class="glyphicon glyphicon-shopping-cart"></i>
-			</a>
-			<div class="dropdown-menu">
-			<div class="row arc-side-news">
-			<div class="col-xs-3 col-md-4">
-			<a href="#" class="angled-img">
-			<div class="img">
-			<img src="assets/images/no_image_available.png" alt="">
-			</div>
-			</a>
-			</div>
-			<div class="col-xs-9 col-md-8">
-			<a href="#" class="pull-right mr-10"><i class="glyphicon glyphicon-times"></i></a>
-			<h4 class="ellipsis"><a href="#">Bloodborne</a></h4>
-			<span class="quantity">1 × <span class="amount">$50.00</span></span>
-			</div>
-			</div>
-			<div class="ml-20 mr-20 pull-right"><strong>'.$lang["header-total-cart"].' : </strong> <span class="amount">$50.00</span></div>
-			<div class="btn-group pull-right m-15">
-			<a href="#" class="btn btn-default btn-sm">'.$lang["header-view-cart"].'</a>
-			</div>
-			</div>
 			</li>';
 			}
 			else{
@@ -234,3 +209,22 @@
 	</div>
 </div>
 <!-- End change language Modal -->
+
+<div class="modal fade modalUnlockCharacter" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body unblockCharConfirm">
+				<center>
+					<h5><?=$lang['account-modal-unblock-character-title'].'</br><small>'.$lang['account-modal-unblock-character-desc']?></small></h5>
+					<div class="mfp-preloader preloader"></div>
+				</center>
+			</div>
+			<div class="modal-body errorUnblockCharacter" style="display:none;">
+				<center>
+					<h5><?=$lang['account-modal-unblock-character-not-homebind']?></h5>
+					<button class="btn btn-danger" data-dismiss="modal"><?=$lang["modalLogReg-BtnCancel"]?></button>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>

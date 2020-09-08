@@ -157,7 +157,6 @@ $(document).ready(function() {
 	});
 
 	$('.loadMessagesComposeClick').click(function(){
-		alert();
 		$('#account-loading').show();
 		$("[class^=messages-]").hide();
 		$("[class^=messagerie]").removeClass('active');
@@ -242,6 +241,24 @@ function addProductCart(pID){
 function delProductCart(pID){
 	$.get('ajax/getCart.php?delItem=true&itemID='+pID, function(response) {
 		getAllCartItems();
+	});
+	return false;
+}
+function startUnlockCharacter(){
+	character = $('#unlockCharID').val();
+	$('.modalUnlockCharacter').modal('show');
+	$('.errorUnblockCharacter').hide();
+	$('.unblockCharConfirm').show();
+	$.get('ajax/load-account.php?unlockCharacter=true&charSelected='+character, function(response){
+		setTimeout(function(){
+			if(response==1){
+				location.reload();
+			}
+			else{
+				$('.unblockCharConfirm').hide();
+				$('.errorUnblockCharacter').show();
+			}
+		}, 2000);
 	});
 	return false;
 }
