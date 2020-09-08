@@ -30,7 +30,7 @@
 <title><?=$_config['website-title']?></title>
 <meta name="description" content="Gaming HTML Template based on Bootstrap">
 <meta name="keywords" content="gaming, game, community, template, html, bootstrap, webpack">
-<meta name="author" content="nK">
+<meta name="author" content="arcaniaFr">
 <link rel="icon" type="image/png" href="<?=$_config["website-icon"]?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
