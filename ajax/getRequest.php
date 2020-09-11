@@ -28,8 +28,9 @@ if(isset($_GET['sendRegister']) && isset($_GET['regUsername']) && isset($_GET['r
 						$battlenet = $db->query("SELECT * FROM ".$_database['auth-db-name'].".battlenet_accounts WHERE email='".$regEmail."'");
 						$bNet = $battlenet->fetch_object();
 						$bNetID = $bNet->id;
-						$createAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".account (username, sha_pass_hash, email, reg_mail, battlenet_account, battlenet_index) VALUES 
-						('".$regUsername."','".$encrypt_password."','".$regEmail."','".$regEmail."','".$bNetID."','1')");
+						list($salt, $verifier) = getRegistrationData(strtoupper($regUsername), $regPassword);
+						$createAccount = $db->query("INSERT INTO ".$_database['auth-db-name'].".account (username, salt, verifier, sha_pass_hash, email, reg_mail, battlenet_account, battlenet_index) VALUES 
+						('".$regUsername."','".$salt."','".$verifier."','".$encrypt_password."','".$regEmail."','".$regEmail."','".$bNetID."','1')");
 						if($createAccount){
 							$getUserAccount = $db->query("SELECT * FROM ".$_database['auth-db-name'].".account WHERE email='".$regEmail."'");
 							$getUserInfos = $getUserAccount->fetch_object();
